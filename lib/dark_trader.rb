@@ -13,12 +13,12 @@ def cryptomonnaies
   name << n.text
   end
   value = page.xpath('//tr/td[5]/a').each do |p|
-  price << p.text
+  price << p.text.to_f
   end
   hash=name.zip(price)
   hash.each do |h|
   array << {h[0] => h[1]}
   end
-  puts array
+  return array
   end
   cryptomonnaies
